@@ -21,6 +21,7 @@ public class Database {
         this.students = students;
     }
 
+
     public Teacher[] getTeachers() {
         return teachers;
     }
@@ -29,6 +30,10 @@ public class Database {
         this.teachers = teachers;
     }
     public String addNewTeacher(Teacher teacher){
+        Teacher [] teachers1 ;
+        teachers1= Arrays.copyOf(teachers, teachers.length + 1);
+        teachers1[teachers1.length - 1] = teacher;
+        teachers = teachers1;
         return "Teacher added successfully";
     }
 
@@ -64,8 +69,8 @@ public class Database {
         return "Course updated successfully";
     }
 
-    public String searchTeacher(Teacher teacher){
-        return "Teacher found";
+    public Teacher  searchTeacherBYName(String name){
+        return null;
     }
 
     public Student searchStudentByName(String name){

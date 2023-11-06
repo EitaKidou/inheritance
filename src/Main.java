@@ -27,7 +27,7 @@ public class Main {
         Teacher teacher7 = new Teacher("Jade", "HTML", 70);
         Teacher teacher8 = new Teacher("Jasmine", "CSS", 80);
         Teacher teacher9 = new Teacher("Jocelyn", "SQL", 90);
-        Teacher teacher10 = new Teacher("Jolene", "Ruby", 100);
+        Teacher teacher10 = new Teacher("Abdy", "Ruby", 100);
 
         teacher1.setCourses(course1);
         teacher2.setCourses(course2);
@@ -73,7 +73,50 @@ public class Main {
         database.setTeachers(new Teacher[]{teacher1, teacher2, teacher3, teacher4, teacher5, teacher6, teacher7, teacher8, teacher9, teacher10});
         database.setStudents(new Student[]{student1, student2, student3, student4, student5, student6, student7});
 
-        System.out.println(database);
+        System.out.println(database.addNewTeacher(new Teacher("Jolene", "Ruby", 100)));
+         while (true) {
+             System.out.println(""" 
+                        | 1. Add new teacher
+                        | 2. Add new student
+                        | 3. Add new course
+                        | 4. Remove teacher
+                        | 5. Remove student
+                        | 6. Remove course
+                        | 7. Update teacher
+                        | 8. Update student
+                        | 9. Update course
+                        |10. Find Teacher by name
+                        |11. Find Student by name
+                        |12. Find Course by name
+                        |13. Find Teacher by specialization
+                     """);
 
+             System.out.println("Enter your choice: ");
+                Scanner scanner = new Scanner(System.in);
+                int choice = scanner.nextInt();
+           switch (choice)
+           {
+               case 1:
+                   System.out.println("Enter teacher name: ");
+                   String name = scanner.next();
+                   System.out.println("Enter teacher specialization: ");
+                   String specialization = scanner.next();
+                   System.out.println("Enter teacher stage: ");
+                   int stage = scanner.nextInt();
+                   Teacher teacher = new Teacher(name, specialization, stage);
+                   System.out.println(database.addNewTeacher(teacher));
+                   break;
+                case 2:
+                    System.out.println("Enter student name: ");
+                    String name1 = scanner.next();
+                    System.out.println("Enter student age: ");
+                    int age = scanner.nextInt();
+                    System.out.println("Enter student address: ");
+                    String address = scanner.next();
+                    Student student = new Student(name1, age, address);
+                    System.out.println(database.addNewStudent(student));
+                    break;
+           }
+         }
     }
 }
